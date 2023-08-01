@@ -31,7 +31,17 @@ public static class Trigger_TicksPassed_ActivateOn
             BackCompatibility.TriggerDataTicksPassedNull(__instance);
         }
 
+        var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
+
         var data = __instance.Data;
+
+        if (data.ticksPassed > __instance.duration + GenDate.TicksPerHour &&
+            component.LordDelaysDictionary.TryGetValue(lord, out var value))
+        {
+            // Probably after loading save as the changed duration is not saved, resetting to saved value
+            __instance.duration += value;
+        }
+
         if (data.ticksPassed > __instance.duration)
         {
             __result = true;
@@ -63,7 +73,7 @@ public static class Trigger_TicksPassed_ActivateOn
         }
 
         var identifier = (long)lord.GetHashCode() + reasons.RawText.GetHashCode();
-        if (Current.Game.GetComponent<GameComponent_ApprovedLords>().LordReasonHashes.Contains(identifier))
+        if (component.LordReasonHashes.Contains(identifier))
         {
             __result = true;
             return false;
@@ -74,16 +84,37 @@ public static class Trigger_TicksPassed_ActivateOn
         void ButtonAAction()
         {
             instance.duration += GenDate.TicksPerDay;
+            if (component.LordDelaysDictionary.ContainsKey(lord))
+            {
+                component.LordDelaysDictionary[lord] += GenDate.TicksPerDay;
+            }
+            else
+            {
+                component.LordDelaysDictionary[lord] = GenDate.TicksPerDay;
+            }
         }
 
         void ButtonWAction()
         {
             instance.duration += GenDate.TicksPerHour;
+            if (component.LordDelaysDictionary.ContainsKey(lord))
+            {
+                component.LordDelaysDictionary[lord] += GenDate.TicksPerHour;
+            }
+            else
+            {
+                component.LordDelaysDictionary[lord] = GenDate.TicksPerHour;
+            }
         }
 
         void ButtonDAction()
         {
-            Current.Game.GetComponent<GameComponent_ApprovedLords>().LordReasonHashes.Add(identifier);
+            component.LordReasonHashes.Add(identifier);
+            if (component.LordDelaysDictionary.ContainsKey(lord))
+            {
+                component.LordDelaysDictionary.Remove(lord);
+            }
+
             instance.ActivateOn(lord, signal);
         }
 

@@ -2,10 +2,12 @@
 <LanguageData>
   <SV.CheckForDanger>Visitors check for danger before leaving</SV.CheckForDanger>
   <SV.CheckForDangerTT>When about to leave, visitors will check for dangers and if there are any they will ask to stay for a while.</SV.CheckForDangerTT>
+  <SV.DelayThoughts>Delays will cause negative thoughts</SV.DelayThoughts>
+  <SV.DelayThoughtsTT>Visitors will get increasingly negative thoughts if delayed.</SV.DelayThoughtsTT>
   <SV.CheckHealth>Visitors will not leave if needing medical rest</SV.CheckHealth>
   <SV.CheckHealthTT>If there are any pawns in the visitor group needing medical rest, the group will wait until all is healthy.</SV.CheckHealthTT>
   <SV.UVLightSensitivity>UV Sensitive visitors leave after sundown</SV.UVLightSensitivity>
-  <SV.UVLightSensitivityTT>If there are any pawns with major UV sensitivity in the group, they will choose to leave after sun-down.</SV.UVLightSensitivityTT>
+  <SV.UVLightSensitivityTT>If there are any pawns with major UV sensitivity in the group, they will choose to leave after sun-down. This also includes Vampires from the Rim of Madness mod.</SV.UVLightSensitivityTT>
   <SV.ModVersion>Installed mod-version: {0}</SV.ModVersion>
   <SV.VisitorsLeaving>They are afraid to do so for the following reasons:\n{0}\n\nDo you allow them to stay until tomorrow?</SV.VisitorsLeaving>
   <SV.VisitorsLeavingTitle>Visitors from {0} are about to leave</SV.VisitorsLeavingTitle>

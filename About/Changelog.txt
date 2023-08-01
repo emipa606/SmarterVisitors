@@ -1,5 +1,11 @@
 # Changelog for SmarterVisitors
 
+1.4.1 - Added visiting spot where visitors will hang around when built. Not applicable for Hospitality guests as they have their own guest area.
+Added negative thoughts for visitors that has to stay.
+Added support for sunlight-check for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1187010034]Rim of Madness - Vampires[/url].
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.4.0 - First publish.
 Used DeepL to update translations for ChineseSimplified, French, German
 

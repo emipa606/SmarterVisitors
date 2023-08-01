@@ -39,3 +39,4 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/3012491521]Last updated 2023-08-01

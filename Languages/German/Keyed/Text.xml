@@ -13,4 +13,6 @@
   <SV.Allow>Sicher, Sie können bleiben</SV.Allow>
   <SV.WaitALittle>In einer Stunde wieder fragen</SV.WaitALittle>
   <SV.Deny>Nein, bitte gehen Sie jetzt</SV.Deny>
+  <SV.DelayThoughts>Verzögerungen verursachen negative Gedanken</SV.DelayThoughts>
+  <SV.DelayThoughtsTT>Die Besucher werden zunehmend negative Gedanken bekommen, wenn sie sich verspäten.</SV.DelayThoughtsTT>
 </LanguageData>

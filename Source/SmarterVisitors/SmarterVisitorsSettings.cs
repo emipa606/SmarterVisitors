@@ -9,6 +9,7 @@ internal class SmarterVisitorsSettings : ModSettings
 {
     public bool CheckForDanger = true;
     public bool CheckHealth = true;
+    public bool DelayThoughts = true;
     public bool UVLightSensitivity = true;
 
     /// <summary>
@@ -20,5 +21,6 @@ internal class SmarterVisitorsSettings : ModSettings
         Scribe_Values.Look(ref CheckForDanger, "CheckForDanger", true);
         Scribe_Values.Look(ref UVLightSensitivity, "UVLightSensitivity", true);
         Scribe_Values.Look(ref CheckHealth, "CheckHealth", true);
+        Scribe_Values.Look(ref DelayThoughts, "DelayThoughts", true);
     }
 }

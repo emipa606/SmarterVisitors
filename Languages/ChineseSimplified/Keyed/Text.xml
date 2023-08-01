@@ -13,4 +13,6 @@
   <SV.Allow>当然，你可以留下来</SV.Allow>
   <SV.WaitALittle>一小时后再问</SV.WaitALittle>
   <SV.Deny>不，请马上离开</SV.Deny>
+  <SV.DelayThoughts>延迟会导致消极想法</SV.DelayThoughts>
+  <SV.DelayThoughtsTT>如果延误，游客会产生越来越多的负面想法。</SV.DelayThoughtsTT>
 </LanguageData>

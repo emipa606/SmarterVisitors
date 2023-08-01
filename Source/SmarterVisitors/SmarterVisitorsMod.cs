@@ -52,7 +52,9 @@ internal class SmarterVisitorsMod : Mod
             "SV.CheckForDangerTT".Translate());
         listing_Standard.CheckboxLabeled("SV.CheckHealth".Translate(), ref Settings.CheckHealth,
             "SV.CheckHealthTT".Translate());
-        if (ModLister.BiotechInstalled)
+        listing_Standard.CheckboxLabeled("SV.DelayThoughts".Translate(), ref Settings.DelayThoughts,
+            "SV.DelayThoughtsTT".Translate());
+        if (ModLister.BiotechInstalled || SmarterVisitors.VampiresLoaded)
         {
             listing_Standard.CheckboxLabeled("SV.UVLightSensitivity".Translate(), ref Settings.UVLightSensitivity,
                 "SV.UVLightSensitivityTT".Translate());

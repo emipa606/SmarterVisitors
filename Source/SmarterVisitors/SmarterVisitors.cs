@@ -11,12 +11,14 @@ namespace SmarterVisitors;
 [StaticConstructorOnStartup]
 public static class SmarterVisitors
 {
-    public static GeneDef UvGeneDef;
+    public static readonly GeneDef UvGeneDef;
+    public static bool VampiresLoaded;
 
     static SmarterVisitors()
     {
         new Harmony("Mlie.SmarterVisitors").PatchAll(Assembly.GetExecutingAssembly());
         UvGeneDef = DefDatabase<GeneDef>.GetNamedSilentFail("UVSensitivity_Intense");
+        VampiresLoaded = ModLister.GetActiveModWithIdentifier("RimOfMadness.Vampires") != null;
     }
 
     /// <summary>
@@ -86,22 +88,33 @@ public static class SmarterVisitors
 
     public static bool CheckIfOkTimeOfDay(Lord lord)
     {
-        if (!ModsConfig.BiotechActive)
-        {
-            return true;
-        }
-
         if (!SmarterVisitorsMod.instance.Settings.UVLightSensitivity)
         {
             return true;
         }
 
-        if (UvGeneDef == null)
+        if (lord.Map.skyManager.CurSkyGlow <= 0.1f) // Not daytime
         {
             return true;
         }
 
-        if (lord.Map.skyManager.CurSkyGlow <= 0.1f) // Not daytime
+        if (VampiresLoaded)
+        {
+            if (lord.ownedPawns.Any(pawn =>
+                    pawn.health?.hediffSet.hediffs?.Any(hediff => hediff.def.defName.StartsWith("ROM_Vampirism")) ==
+                    true))
+            {
+                Log.Message("Vampire in group");
+                return false;
+            }
+        }
+
+        if (!ModsConfig.BiotechActive)
+        {
+            return true;
+        }
+
+        if (UvGeneDef == null)
         {
             return true;
         }
