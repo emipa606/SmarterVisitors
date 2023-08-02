@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.4.2 - Null-check for the game-component should make things better
+
+
 1.4.1 - Added visiting spot where visitors will hang around when built. Not applicable for Hospitality guests as they have their own guest area.
 Added negative thoughts for visitors that has to stay.
 Added support for sunlight-check for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1187010034]Rim of Madness - Vampires[/url].

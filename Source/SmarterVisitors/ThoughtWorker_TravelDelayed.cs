@@ -20,7 +20,7 @@ public class ThoughtWorker_TravelDelayed : ThoughtWorker
         }
 
         var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
-        if (!component.LordDelaysDictionary.ContainsKey(lord))
+        if (component?.LordDelaysDictionary == null || !component.LordDelaysDictionary.ContainsKey(lord))
         {
             return ThoughtState.Inactive;
         }
