@@ -2,6 +2,8 @@
 <LanguageData>
   <SV.CheckForDanger>Visitors check for danger before leaving</SV.CheckForDanger>
   <SV.CheckForDangerTT>When about to leave, visitors will check for dangers and if there are any they will ask to stay for a while.</SV.CheckForDangerTT>
+  <SV.AddExtraFood>Add {0} rations of food to visitors</SV.AddExtraFood>
+  <SV.AddExtraFoodTT>Visitors will add food to their inventory to be more prepared for delays.</SV.AddExtraFoodTT>
   <SV.DelayThoughts>Delays will cause negative thoughts</SV.DelayThoughts>
   <SV.DelayThoughtsTT>Visitors will get increasingly negative thoughts if delayed.</SV.DelayThoughtsTT>
   <SV.CheckHealth>Visitors will not leave if needing medical rest</SV.CheckHealth>

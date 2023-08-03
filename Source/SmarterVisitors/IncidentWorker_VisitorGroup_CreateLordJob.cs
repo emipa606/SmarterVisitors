@@ -12,6 +12,17 @@ public static class IncidentWorker_VisitorGroup_CreateLordJob
 {
     public static void Postfix(ref LordJob_VisitColony __result, List<Pawn> pawns)
     {
+        if (SmarterVisitorsMod.instance.Settings.AddExtraFood > 0)
+        {
+            foreach (var pawn in pawns)
+            {
+                for (var i = 0; i < SmarterVisitorsMod.instance.Settings.AddExtraFood; i++)
+                {
+                    PawnInventoryGenerator.GiveRandomFood(pawn);
+                }
+            }
+        }
+
         var possibleSpots =
             pawns[0].Map.listerBuildings.AllBuildingsColonistOfDef(ThingDef.Named("SmarterChillSpot"));
 

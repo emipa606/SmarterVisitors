@@ -19,14 +19,10 @@ public class ThoughtWorker_TravelDelayed : ThoughtWorker
             return ThoughtState.Inactive;
         }
 
-        var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
-        if (component?.LordDelaysDictionary == null || !component.LordDelaysDictionary.ContainsKey(lord))
+        switch (SmarterVisitors.GetDelayValue(lord))
         {
-            return ThoughtState.Inactive;
-        }
-
-        switch (component.LordDelaysDictionary[lord])
-        {
+            case 0:
+                return ThoughtState.Inactive;
             case < GenDate.TicksPerHour * 3:
                 return ThoughtState.ActiveAtStage(0);
             case < GenDate.TicksPerDay:

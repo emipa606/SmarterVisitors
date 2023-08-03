@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -33,13 +34,24 @@ public static class Trigger_TicksPassed_ActivateOn
 
         var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
 
-        var data = __instance.Data;
+        if (component == null)
+        {
+            Log.Warning("[SmarterVisitors]: Failed to find gamecomponent. Will not be able to delay guests");
+            return true;
+        }
 
+        if (component.LordReasonHashes == null)
+        {
+            component.LordReasonHashes = new List<long>();
+        }
+
+        var data = __instance.Data;
+        var currentDelay = SmarterVisitors.GetDelayValue(lord);
         if (data.ticksPassed > __instance.duration + GenDate.TicksPerHour &&
-            component.LordDelaysDictionary.TryGetValue(lord, out var value))
+            currentDelay > 0)
         {
             // Probably after loading save as the changed duration is not saved, resetting to saved value
-            __instance.duration += value;
+            __instance.duration += currentDelay;
         }
 
         if (data.ticksPassed > __instance.duration)
@@ -84,27 +96,13 @@ public static class Trigger_TicksPassed_ActivateOn
         void ButtonAAction()
         {
             instance.duration += GenDate.TicksPerDay;
-            if (component.LordDelaysDictionary.ContainsKey(lord))
-            {
-                component.LordDelaysDictionary[lord] += GenDate.TicksPerDay;
-            }
-            else
-            {
-                component.LordDelaysDictionary[lord] = GenDate.TicksPerDay;
-            }
+            SmarterVisitors.SetDelayValue(lord, GenDate.TicksPerDay);
         }
 
         void ButtonWAction()
         {
             instance.duration += GenDate.TicksPerHour;
-            if (component.LordDelaysDictionary.ContainsKey(lord))
-            {
-                component.LordDelaysDictionary[lord] += GenDate.TicksPerHour;
-            }
-            else
-            {
-                component.LordDelaysDictionary[lord] = GenDate.TicksPerHour;
-            }
+            SmarterVisitors.SetDelayValue(lord, GenDate.TicksPerHour);
         }
 
         void ButtonDAction()

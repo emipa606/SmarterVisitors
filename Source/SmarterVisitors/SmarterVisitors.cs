@@ -128,6 +128,44 @@ public static class SmarterVisitors
                lord.ownedPawns.All(pawn => !HealthAIUtility.ShouldSeekMedicalRest(pawn));
     }
 
+    public static void SetDelayValue(Lord lord, int delay)
+    {
+        var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
+        if (component == null)
+        {
+            return;
+        }
+
+        if (component.LordDelaysDictionary == null)
+        {
+            component.LordDelaysDictionary = new Dictionary<Lord, int>();
+        }
+
+        if (component.LordDelaysDictionary.ContainsKey(lord))
+        {
+            component.LordDelaysDictionary[lord] += delay;
+            return;
+        }
+
+        component.LordDelaysDictionary[lord] = delay;
+    }
+
+    public static int GetDelayValue(Lord lord)
+    {
+        var component = Current.Game.GetComponent<GameComponent_ApprovedLords>();
+        if (component == null)
+        {
+            return 0;
+        }
+
+        if (component.LordDelaysDictionary == null)
+        {
+            component.LordDelaysDictionary = new Dictionary<Lord, int>();
+        }
+
+        return component.LordDelaysDictionary.TryGetValue(lord, out var value) ? value : 0;
+    }
+
     private static bool IsFogged(Pawn pawn)
     {
         return pawn.MapHeld.fogGrid.IsFogged(pawn.PositionHeld);

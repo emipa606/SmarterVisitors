@@ -1,3 +1,4 @@
+using System;
 using Mlie;
 using UnityEngine;
 using Verse;
@@ -59,6 +60,11 @@ internal class SmarterVisitorsMod : Mod
             listing_Standard.CheckboxLabeled("SV.UVLightSensitivity".Translate(), ref Settings.UVLightSensitivity,
                 "SV.UVLightSensitivityTT".Translate());
         }
+
+        listing_Standard.Gap();
+        Settings.AddExtraFood = (int)Math.Round(listing_Standard.SliderLabeled(
+            "SV.AddExtraFood".Translate(Settings.AddExtraFood), Settings.AddExtraFood, 0, 5f,
+            tooltip: "SV.AddExtraFoodTT".Translate()));
 
         if (currentVersion != null)
         {

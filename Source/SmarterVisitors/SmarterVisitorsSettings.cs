@@ -7,6 +7,7 @@ namespace SmarterVisitors;
 /// </summary>
 internal class SmarterVisitorsSettings : ModSettings
 {
+    public int AddExtraFood = 1;
     public bool CheckForDanger = true;
     public bool CheckHealth = true;
     public bool DelayThoughts = true;
@@ -18,6 +19,7 @@ internal class SmarterVisitorsSettings : ModSettings
     public override void ExposeData()
     {
         base.ExposeData();
+        Scribe_Values.Look(ref AddExtraFood, "AddExtraFood", 1);
         Scribe_Values.Look(ref CheckForDanger, "CheckForDanger", true);
         Scribe_Values.Look(ref UVLightSensitivity, "UVLightSensitivity", true);
         Scribe_Values.Look(ref CheckHealth, "CheckHealth", true);

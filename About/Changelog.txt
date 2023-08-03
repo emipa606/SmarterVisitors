@@ -1,5 +1,9 @@
 # Changelog for SmarterVisitors
 
+1.4.3 - Added mod setting for amount of extra food brought, also probably fixed some nullchecks. Not sure since noone has provided a log of the issue..
+Used DeepL to update translations for ChineseSimplified, French, German
+
+
 1.4.2 - Null-check for the game-component should make things better
 
 
