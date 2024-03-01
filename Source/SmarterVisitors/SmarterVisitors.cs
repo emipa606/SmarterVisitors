@@ -12,7 +12,7 @@ namespace SmarterVisitors;
 public static class SmarterVisitors
 {
     public static readonly GeneDef UvGeneDef;
-    public static bool VampiresLoaded;
+    public static readonly bool VampiresLoaded;
 
     static SmarterVisitors()
     {
@@ -114,12 +114,7 @@ public static class SmarterVisitors
             return true;
         }
 
-        if (UvGeneDef == null)
-        {
-            return true;
-        }
-
-        return lord.ownedPawns.All(pawn => pawn.genes?.GetGene(UvGeneDef) == null);
+        return UvGeneDef == null || lord.ownedPawns.All(pawn => pawn.genes?.GetGene(UvGeneDef) == null);
     }
 
     public static bool CheckIfOkHealth(Lord lord)
@@ -141,13 +136,10 @@ public static class SmarterVisitors
             component.LordDelaysDictionary = new Dictionary<Lord, int>();
         }
 
-        if (component.LordDelaysDictionary.ContainsKey(lord))
+        if (!component.LordDelaysDictionary.TryAdd(lord, delay))
         {
             component.LordDelaysDictionary[lord] += delay;
-            return;
         }
-
-        component.LordDelaysDictionary[lord] = delay;
     }
 
     public static int GetDelayValue(Lord lord)
@@ -163,7 +155,7 @@ public static class SmarterVisitors
             component.LordDelaysDictionary = new Dictionary<Lord, int>();
         }
 
-        return component.LordDelaysDictionary.TryGetValue(lord, out var value) ? value : 0;
+        return component.LordDelaysDictionary.GetValueOrDefault(lord, 0);
     }
 
     private static bool IsFogged(Pawn pawn)

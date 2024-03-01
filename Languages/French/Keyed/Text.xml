@@ -17,4 +17,5 @@
   <SV.DelayThoughtsTT>En cas de retard, les visiteurs auront des pensées de plus en plus négatives.</SV.DelayThoughtsTT>
   <SV.AddExtraFood>Ajouter {0} rations de nourriture aux visiteurs</SV.AddExtraFood>
   <SV.AddExtraFoodTT>Les visiteurs ajouteront de la nourriture à leur inventaire afin d'être mieux préparés en cas de retard.</SV.AddExtraFoodTT>
+  <SV.ChillSpotDestroyed>Il n'est possible de placer qu'un seul point de visite, en supprimant l'ancien point.</SV.ChillSpotDestroyed>
 </LanguageData>

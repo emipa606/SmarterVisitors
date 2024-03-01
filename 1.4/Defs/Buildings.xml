@@ -3,6 +3,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>SmarterChillSpot</defName>
     <label>visiting spot</label>
+    <thingClass>SmarterVisitors.SmarterChillSpot</thingClass>
     <description>Designates a spot where visitors should hang around at when visiting the colony.</description>
     <graphicData>
       <texPath>Things/Building/Misc/PartySpot</texPath>

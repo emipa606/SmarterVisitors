@@ -17,10 +17,26 @@ You can select what type of conditions should delay visitors from leaving in the
 
 
 There is also an option for visitors getting negative thoughts if staying around longer than they planned. This increases for longer delays.
+You can also add extra food-rations to visitors inventories to make longer delays less of a problem.
 
 The mod works well with the excellent mod https://steamcommunity.com/sharedfiles/filedetails/?id=753498552]Hospitality by Orion. The check for dangers on the map is adapted from the same check that hospitality-groups do when entering the map.
 
 The mod only triggers when visitors leave triggered by time, things like low temperatures or hostile actions are not affected. If you have any other ideas on what visitors or other groups should check when leaving, please leave a comment and Ill try to implement it!
+
+[table]
+    [tr]
+        [td]https://dsc.gg/mlie]![Image](https://i.imgur.com/zdzzBrc.png)
+[/td]
+        [td]https://github.com/emipa606/SmarterVisitors]![Image](https://i.imgur.com/kTkpTOE.png)
+[/td]
+    [/tr]
+    [tr]
+        [td]![Image](https://i.imgur.com/WjDSfUn.png)
+[/td]
+        [td]![Image](https://i.imgur.com/h5VwTNL.png)
+[/td]
+    [/tr]
+[/table]
 
 ![Image](https://i.imgur.com/Ds0rBAD.png)
 
@@ -35,10 +51,12 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib and command Ctrl+F12
+-  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/3012491521]Last updated 2023-08-03
+
+https://steamcommunity.com/sharedfiles/filedetails/changelog/3012491521]![Image](https://img.shields.io/github/v/release/emipa606/SmarterVisitors?label=latest%20version&style=plastic&labelColor=0070cd&color=white)
+

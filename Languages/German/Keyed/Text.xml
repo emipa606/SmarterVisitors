@@ -17,4 +17,5 @@
   <SV.DelayThoughtsTT>Die Besucher werden zunehmend negative Gedanken bekommen, wenn sie sich verspäten.</SV.DelayThoughtsTT>
   <SV.AddExtraFood>Fügen Sie {0} Essensrationen für Besucher hinzu</SV.AddExtraFood>
   <SV.AddExtraFoodTT>Die Besucher werden ihren Vorrat an Lebensmitteln aufstocken, um auf Verzögerungen besser vorbereitet zu sein.</SV.AddExtraFoodTT>
+  <SV.ChillSpotDestroyed>Es kann nur ein Besuchsspot platziert werden, wobei der alte Spot entfernt wird.</SV.ChillSpotDestroyed>
 </LanguageData>

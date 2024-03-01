@@ -17,4 +17,5 @@
   <SV.DelayThoughtsTT>如果延误，游客会产生越来越多的负面想法。</SV.DelayThoughtsTT>
   <SV.AddExtraFood>为游客增加{0}口粮</SV.AddExtraFood>
   <SV.AddExtraFoodTT>游客将在他们的库存中添加食物，以便为延误做好更充分的准备。</SV.AddExtraFoodTT>
+  <SV.ChillSpotDestroyed>只能放置一个参观点，移除旧参观点</SV.ChillSpotDestroyed>
 </LanguageData>
