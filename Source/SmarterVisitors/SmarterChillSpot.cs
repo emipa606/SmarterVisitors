@@ -10,7 +10,7 @@ public class SmarterChillSpot : Building
     public SmarterChillSpot()
     {
         var chillSpot = Current.Game?.CurrentMap?.listerBuildings
-            ?.AllBuildingsColonistOfDef(ThingDefOf.SmarterChillSpot)?.FirstOrDefault();
+            ?.AllBuildingsColonistOfDef(SmartThingDefOf.SmarterChillSpot)?.FirstOrDefault();
         if (chillSpot == null)
         {
             return;

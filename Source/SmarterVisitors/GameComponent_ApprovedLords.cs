@@ -7,14 +7,14 @@ namespace SmarterVisitors;
 public class GameComponent_ApprovedLords : GameComponent
 {
     public Dictionary<Lord, int> LordDelaysDictionary;
-    private List<Lord> lordDelaysDictionaryKeys = new List<Lord>();
-    private List<int> lordDelaysDictionaryValues = new List<int>();
+    private List<Lord> lordDelaysDictionaryKeys = [];
+    private List<int> lordDelaysDictionaryValues = [];
     public List<long> LordReasonHashes;
 
     // ReSharper disable once UnusedParameter.Local
     public GameComponent_ApprovedLords(Game game)
     {
-        LordReasonHashes = new List<long>();
+        LordReasonHashes = [];
         LordDelaysDictionary = new Dictionary<Lord, int>();
     }
 

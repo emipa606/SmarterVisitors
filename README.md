@@ -23,21 +23,6 @@ The mod works well with the excellent mod https://steamcommunity.com/sharedfiles
 
 The mod only triggers when visitors leave triggered by time, things like low temperatures or hostile actions are not affected. If you have any other ideas on what visitors or other groups should check when leaving, please leave a comment and Ill try to implement it!
 
-[table]
-    [tr]
-        [td]https://dsc.gg/mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/SmarterVisitors]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-    [tr]
-        [td]![Image](https://i.imgur.com/WjDSfUn.png)
-[/td]
-        [td]![Image](https://i.imgur.com/h5VwTNL.png)
-[/td]
-    [/tr]
-[/table]
-
 ![Image](https://i.imgur.com/Ds0rBAD.png)
 
 Since modding is just a hobby for me I expect no donations to keep modding. If you still want to show your support you can gift me anything from my https://store.steampowered.com/wishlist/id/Mlie]Wishlist or buy me a cup of tea.
@@ -55,6 +40,7 @@ https://ko-fi.com/G2G55DDYD]![Image](https://i.imgur.com/VWG0yff.png)
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+-  Use https://github.com/RimSort/RimSort/releases/latest]RimSort to sort your mods
 
 
 

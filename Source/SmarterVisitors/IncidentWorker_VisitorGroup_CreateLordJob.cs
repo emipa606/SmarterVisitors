@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -24,7 +23,7 @@ public static class IncidentWorker_VisitorGroup_CreateLordJob
         }
 
         var possibleSpots =
-            pawns[0].Map.listerBuildings.AllBuildingsColonistOfDef(ThingDef.Named("SmarterChillSpot"));
+            pawns[0].Map.listerBuildings.AllBuildingsColonistOfDef(SmartThingDefOf.SmarterChillSpot);
 
         if (!possibleSpots.Any())
         {
@@ -38,7 +37,8 @@ public static class IncidentWorker_VisitorGroup_CreateLordJob
                 continue;
             }
 
-            __result.chillSpot = possibleSpot.Position;
+            AccessTools.Field(typeof(LordJob_VisitColony), "chillSpot").SetValue(__result, possibleSpot.Position);
+            //__result.chillSpot = possibleSpot.Position;
             return;
         }
     }

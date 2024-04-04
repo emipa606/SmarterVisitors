@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -42,7 +41,7 @@ public static class Trigger_TicksPassed_ActivateOn
 
         if (component.LordReasonHashes == null)
         {
-            component.LordReasonHashes = new List<long>();
+            component.LordReasonHashes = [];
         }
 
         var data = __instance.Data;
@@ -93,6 +92,15 @@ public static class Trigger_TicksPassed_ActivateOn
 
         var instance = __instance;
 
+        var askDialog = new Dialog_MessageBox("SV.VisitorsLeaving".Translate(reasons), "SV.Allow".Translate(),
+            ButtonAAction, "SV.Deny".Translate(), ButtonDAction, "SV.VisitorsLeavingTitle".Translate(lord.faction))
+        {
+            buttonCAction = ButtonWAction,
+            buttonCText = "SV.WaitALittle".Translate()
+        };
+        Find.WindowStack.Add(askDialog);
+        return false;
+
         void ButtonAAction()
         {
             instance.duration += GenDate.TicksPerDay;
@@ -115,14 +123,5 @@ public static class Trigger_TicksPassed_ActivateOn
 
             instance.ActivateOn(lord, signal);
         }
-
-        var askDialog = new Dialog_MessageBox("SV.VisitorsLeaving".Translate(reasons), "SV.Allow".Translate(),
-            ButtonAAction, "SV.Deny".Translate(), ButtonDAction, "SV.VisitorsLeavingTitle".Translate(lord.faction))
-        {
-            buttonCAction = ButtonWAction,
-            buttonCText = "SV.WaitALittle".Translate()
-        };
-        Find.WindowStack.Add(askDialog);
-        return false;
     }
 }

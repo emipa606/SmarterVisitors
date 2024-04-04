@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.5.0 - Updated for 1.5
+
+
 1.4.4 - Only one visitor spot can be built, when a new is built the old one is removed. Via Deadmano
 Used DeepL to update translations for ChineseSimplified, French, German
 
