@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.5.1 - Added royalty check for the toxicSpewer
+
+
 1.5.0 - Updated for 1.5
 
 

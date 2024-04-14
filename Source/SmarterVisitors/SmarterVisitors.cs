@@ -28,7 +28,12 @@ public static class SmarterVisitors
     public static bool CheckCanGo(Map map, Faction faction, out TaggedString reasons)
     {
         var fallout = map.GameConditionManager.ConditionIsActive(GameConditionDefOf.ToxicFallout);
-        var spewer = map.GameConditionManager.ConditionIsActive(SmartGameConditionDefOf.ToxicSpewer);
+        var spewer = false;
+        if (ModLister.RoyaltyInstalled)
+        {
+            spewer = map.GameConditionManager.ConditionIsActive(GameConditionDef.Named("ToxicSpewer"));
+        }
+
         var potentiallyDangerous = map.mapPawns.AllPawnsSpawned
             .Where(p => !p.Dead && !p.IsPrisoner && !p.Downed && !IsFogged(p) && !p.InContainerEnclosed).ToArray();
         var hostileFactions = potentiallyDangerous.Where(p => p.Faction != null).Select(p => p.Faction)
@@ -53,7 +58,7 @@ public static class SmarterVisitors
 
         if (spewer)
         {
-            reasonList.Add("- " + SmartGameConditionDefOf.ToxicSpewer.LabelCap);
+            reasonList.Add("- " + GameConditionDef.Named("ToxicSpewer").LabelCap);
         }
 
         if (winter)
