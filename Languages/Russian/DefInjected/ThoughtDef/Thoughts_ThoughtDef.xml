@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--                          slight delay -->
+  <TravelDelayed.stages.0.label>небольшая задержка</TravelDelayed.stages.0.label>
+  <!--                                I had to delay my plans for leaving this place, but it was for a good reason I think. -->
+  <TravelDelayed.stages.0.description>Мне пришлось отложить свои планы покинуть это место, но, как мне кажется, по вполне веской причине.</TravelDelayed.stages.0.description>
+  <!--                          delay -->
+  <TravelDelayed.stages.1.label>задержка</TravelDelayed.stages.1.label>
+  <!--                                I dont want to stay around here any longer, hopefully I can leave soon. -->
+  <TravelDelayed.stages.1.description>Я не хочу больше оставаться здесь, надеюсь, что я скоро смогу уйти.</TravelDelayed.stages.1.description>
+  <!--                          long delay -->
+  <TravelDelayed.stages.2.label>длительная задержка</TravelDelayed.stages.2.label>
+  <!--                                Why cant I leave? I should have been out of here ages ago! -->
+  <TravelDelayed.stages.2.description>Почему я не могу уйти? Я уже давно должен был уйти отсюда!</TravelDelayed.stages.2.description>
+  <!--                          stranded -->
+  <TravelDelayed.stages.3.label>застой</TravelDelayed.stages.3.label>
+  <!--                                I cant take this anymore, this feels like a prison! -->
+  <TravelDelayed.stages.3.description>Я больше не могу этого выносить, это похоже на тюрьму!</TravelDelayed.stages.3.description>
+</LanguageData>

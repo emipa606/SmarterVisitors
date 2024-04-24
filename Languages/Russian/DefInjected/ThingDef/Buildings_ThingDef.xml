@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--                    visiting spot -->
+  <SmarterChillSpot.label>место посещения</SmarterChillSpot.label>
+  <!--                          Designates a spot where visitors should hang around at when visiting the colony. -->
+  <SmarterChillSpot.description>Обозначает место, где гости будут находиться во время посещения колонии.</SmarterChillSpot.description>
+</LanguageData>
