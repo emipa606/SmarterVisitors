@@ -1,5 +1,9 @@
 # Changelog for SmarterVisitors
 
+1.5.2 - Added russian translation, thanks to kreeperHLC
+Used DeepL to update translations for Russian
+
+
 1.5.1 - Added royalty check for the toxicSpewer
 
 
