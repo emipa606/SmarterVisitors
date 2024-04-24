@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.5.3 - Added russian translation, thanks to kreeperHLC. (Corrected file)
+
+
 1.5.2 - Added russian translation, thanks to kreeperHLC
 Used DeepL to update translations for Russian
 
