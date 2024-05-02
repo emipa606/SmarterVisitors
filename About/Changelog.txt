@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.5.4 - Fixed chinese translation by ouatis
+
+
 1.5.3 - Added russian translation, thanks to kreeperHLC. (Corrected file)
 
 
