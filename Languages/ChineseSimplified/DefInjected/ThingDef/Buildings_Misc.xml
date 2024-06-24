@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <SmarterChillSpot.label>访客逗留点</SmarterChillSpot.label>
   <SmarterChillSpot.description>指定访客在访问殖民地时应该逗留的地点。</SmarterChillSpot.description>
-
 </LanguageData>

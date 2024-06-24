@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.5.5 - Updated chinese translations by JiaRG
+
+
 1.5.4 - Fixed chinese translation by ouatis
 
 
