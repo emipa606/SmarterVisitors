@@ -11,14 +11,14 @@ namespace SmarterVisitors;
 [StaticConstructorOnStartup]
 public static class SmarterVisitors
 {
-    public static readonly GeneDef UvGeneDef;
+    private static readonly GeneDef UvGeneDef;
     public static readonly bool VampiresLoaded;
 
     static SmarterVisitors()
     {
         new Harmony("Mlie.SmarterVisitors").PatchAll(Assembly.GetExecutingAssembly());
         UvGeneDef = DefDatabase<GeneDef>.GetNamedSilentFail("UVSensitivity_Intense");
-        VampiresLoaded = ModLister.GetActiveModWithIdentifier("RimOfMadness.Vampires") != null;
+        VampiresLoaded = ModLister.GetActiveModWithIdentifier("RimOfMadness.Vampires", true) != null;
     }
 
     /// <summary>
@@ -35,13 +35,13 @@ public static class SmarterVisitors
         }
 
         var potentiallyDangerous = map.mapPawns.AllPawnsSpawned
-            .Where(p => !p.Dead && !p.IsPrisoner && !p.Downed && !IsFogged(p) && !p.InContainerEnclosed).ToArray();
+            .Where(p => !p.Dead && !p.IsPrisoner && !p.Downed && !isFogged(p) && !p.InContainerEnclosed).ToArray();
         var hostileFactions = potentiallyDangerous.Where(p => p.Faction != null).Select(p => p.Faction)
             .Where(f => f.HostileTo(Faction.OfPlayer) || f.HostileTo(faction)).ToArray();
         var winter = map.GameConditionManager.ConditionIsActive(GameConditionDefOf.VolcanicWinter);
         var temp = faction.def.allowedArrivalTemperatureRange.Includes(map.mapTemperature.OutdoorTemp) &&
                    faction.def.allowedArrivalTemperatureRange.Includes(map.mapTemperature.SeasonalTemp);
-        var manhunters = potentiallyDangerous.Where(p => p.InAggroMentalState);
+        var manhunters = potentiallyDangerous.Where(p => p.InAggroMentalState).ToArray();
 
         reasons = null;
 
@@ -93,7 +93,7 @@ public static class SmarterVisitors
 
     public static bool CheckIfOkTimeOfDay(Lord lord)
     {
-        if (!SmarterVisitorsMod.instance.Settings.UVLightSensitivity)
+        if (!SmarterVisitorsMod.Instance.Settings.UVLightSensitivity)
         {
             return true;
         }
@@ -124,7 +124,7 @@ public static class SmarterVisitors
 
     public static bool CheckIfOkHealth(Lord lord)
     {
-        return !SmarterVisitorsMod.instance.Settings.CheckHealth ||
+        return !SmarterVisitorsMod.Instance.Settings.CheckHealth ||
                lord.ownedPawns.All(pawn => !HealthAIUtility.ShouldSeekMedicalRest(pawn));
     }
 
@@ -136,10 +136,7 @@ public static class SmarterVisitors
             return;
         }
 
-        if (component.LordDelaysDictionary == null)
-        {
-            component.LordDelaysDictionary = new Dictionary<Lord, int>();
-        }
+        component.LordDelaysDictionary ??= new Dictionary<Lord, int>();
 
         if (!component.LordDelaysDictionary.TryAdd(lord, delay))
         {
@@ -155,15 +152,12 @@ public static class SmarterVisitors
             return 0;
         }
 
-        if (component.LordDelaysDictionary == null)
-        {
-            component.LordDelaysDictionary = new Dictionary<Lord, int>();
-        }
+        component.LordDelaysDictionary ??= new Dictionary<Lord, int>();
 
         return component.LordDelaysDictionary.GetValueOrDefault(lord, 0);
     }
 
-    private static bool IsFogged(Pawn pawn)
+    private static bool isFogged(Pawn pawn)
     {
         return pawn.MapHeld.fogGrid.IsFogged(pawn.PositionHeld);
     }

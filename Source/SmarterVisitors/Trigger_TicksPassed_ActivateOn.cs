@@ -10,7 +10,7 @@ public static class Trigger_TicksPassed_ActivateOn
 {
     public static bool Prefix(ref Trigger_TicksPassed __instance, Lord lord, TriggerSignal signal, ref bool __result)
     {
-        if (!SmarterVisitorsMod.instance.Settings.CheckForDanger)
+        if (!SmarterVisitorsMod.Instance.Settings.CheckForDanger)
         {
             return true;
         }
@@ -21,7 +21,7 @@ public static class Trigger_TicksPassed_ActivateOn
             return false;
         }
 
-        if (lord == null || lord.LordJob.GetType().Name.EndsWith("LordJob_VisitColony") == false)
+        if (lord == null || !lord.LordJob.GetType().Name.EndsWith("LordJob_VisitColony"))
         {
             return true;
         }
@@ -39,10 +39,7 @@ public static class Trigger_TicksPassed_ActivateOn
             return true;
         }
 
-        if (component.LordReasonHashes == null)
-        {
-            component.LordReasonHashes = [];
-        }
+        component.LordReasonHashes ??= [];
 
         var data = __instance.Data;
         var currentDelay = SmarterVisitors.GetDelayValue(lord);
@@ -67,13 +64,7 @@ public static class Trigger_TicksPassed_ActivateOn
 
         if (SmarterVisitors.CheckCanGo(lord.Map, lord.faction, out var reasons))
         {
-            if (!SmarterVisitors.CheckIfOkTimeOfDay(lord))
-            {
-                __instance.duration += GenDate.TicksPerHour;
-                return false;
-            }
-
-            if (!SmarterVisitors.CheckIfOkHealth(lord))
+            if (!SmarterVisitors.CheckIfOkTimeOfDay(lord) || !SmarterVisitors.CheckIfOkHealth(lord))
             {
                 __instance.duration += GenDate.TicksPerHour;
                 return false;
@@ -93,33 +84,30 @@ public static class Trigger_TicksPassed_ActivateOn
         var instance = __instance;
 
         var askDialog = new Dialog_MessageBox("SV.VisitorsLeaving".Translate(reasons), "SV.Allow".Translate(),
-            ButtonAAction, "SV.Deny".Translate(), ButtonDAction, "SV.VisitorsLeavingTitle".Translate(lord.faction))
+            buttonAAction, "SV.Deny".Translate(), buttonDAction, "SV.VisitorsLeavingTitle".Translate(lord.faction))
         {
-            buttonCAction = ButtonWAction,
+            buttonCAction = buttonWAction,
             buttonCText = "SV.WaitALittle".Translate()
         };
         Find.WindowStack.Add(askDialog);
         return false;
 
-        void ButtonAAction()
+        void buttonAAction()
         {
             instance.duration += GenDate.TicksPerDay;
             SmarterVisitors.SetDelayValue(lord, GenDate.TicksPerDay);
         }
 
-        void ButtonWAction()
+        void buttonWAction()
         {
             instance.duration += GenDate.TicksPerHour;
             SmarterVisitors.SetDelayValue(lord, GenDate.TicksPerHour);
         }
 
-        void ButtonDAction()
+        void buttonDAction()
         {
             component.LordReasonHashes.Add(identifier);
-            if (component.LordDelaysDictionary.ContainsKey(lord))
-            {
-                component.LordDelaysDictionary.Remove(lord);
-            }
+            component.LordDelaysDictionary.Remove(lord);
 
             instance.ActivateOn(lord, signal);
         }

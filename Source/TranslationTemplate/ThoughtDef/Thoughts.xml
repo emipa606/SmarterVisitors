@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: slight delay -->
+  <TravelDelayed.stages.slight_delay.label>slight delay</TravelDelayed.stages.slight_delay.label>
+  <!-- EN: I had to delay my plans for leaving this place, but it was for a good reason I think. -->
+  <TravelDelayed.stages.slight_delay.description>I had to delay my plans for leaving this place, but it was for a good reason I think.</TravelDelayed.stages.slight_delay.description>
+  <!-- EN: delay -->
+  <TravelDelayed.stages.delay.label>delay</TravelDelayed.stages.delay.label>
+  <!-- EN: I dont want to stay around here any longer, hopefully I can leave soon. -->
+  <TravelDelayed.stages.delay.description>I dont want to stay around here any longer, hopefully I can leave soon.</TravelDelayed.stages.delay.description>
+  <!-- EN: long delay -->
+  <TravelDelayed.stages.long_delay.label>long delay</TravelDelayed.stages.long_delay.label>
+  <!-- EN: Why cant I leave? I should have been out of here ages ago! -->
+  <TravelDelayed.stages.long_delay.description>Why cant I leave? I should have been out of here ages ago!</TravelDelayed.stages.long_delay.description>
+  <!-- EN: stranded -->
+  <TravelDelayed.stages.stranded.label>stranded</TravelDelayed.stages.stranded.label>
+  <!-- EN: I cant take this anymore, this feels like a prison! -->
+  <TravelDelayed.stages.stranded.description>I cant take this anymore, this feels like a prison!</TravelDelayed.stages.stranded.description>
+</LanguageData>

@@ -8,7 +8,7 @@ public class ThoughtWorker_TravelDelayed : ThoughtWorker
 {
     public override ThoughtState CurrentStateInternal(Pawn p)
     {
-        if (!SmarterVisitorsMod.instance.Settings.DelayThoughts)
+        if (!SmarterVisitorsMod.Instance.Settings.DelayThoughts)
         {
             return ThoughtState.Inactive;
         }

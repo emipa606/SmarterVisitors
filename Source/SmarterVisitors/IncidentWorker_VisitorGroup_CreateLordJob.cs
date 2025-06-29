@@ -11,11 +11,11 @@ public static class IncidentWorker_VisitorGroup_CreateLordJob
 {
     public static void Postfix(ref LordJob_VisitColony __result, List<Pawn> pawns)
     {
-        if (SmarterVisitorsMod.instance.Settings.AddExtraFood > 0)
+        if (SmarterVisitorsMod.Instance.Settings.AddExtraFood > 0)
         {
             foreach (var pawn in pawns)
             {
-                for (var i = 0; i < SmarterVisitorsMod.instance.Settings.AddExtraFood; i++)
+                for (var i = 0; i < SmarterVisitorsMod.Instance.Settings.AddExtraFood; i++)
                 {
                     PawnInventoryGenerator.GiveRandomFood(pawn);
                 }
@@ -38,7 +38,6 @@ public static class IncidentWorker_VisitorGroup_CreateLordJob
             }
 
             AccessTools.Field(typeof(LordJob_VisitColony), "chillSpot").SetValue(__result, possibleSpot.Position);
-            //__result.chillSpot = possibleSpot.Position;
             return;
         }
     }

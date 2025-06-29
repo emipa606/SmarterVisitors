@@ -11,7 +11,7 @@ internal class SmarterVisitorsMod : Mod
     /// <summary>
     ///     The instance of the settings to be read by the mod
     /// </summary>
-    public static SmarterVisitorsMod instance;
+    public static SmarterVisitorsMod Instance;
 
     private static string currentVersion;
 
@@ -21,7 +21,7 @@ internal class SmarterVisitorsMod : Mod
     /// <param name="content"></param>
     public SmarterVisitorsMod(ModContentPack content) : base(content)
     {
-        instance = this;
+        Instance = this;
         Settings = GetSettings<SmarterVisitorsSettings>();
         currentVersion = VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
@@ -47,33 +47,33 @@ internal class SmarterVisitorsMod : Mod
     /// <param name="rect"></param>
     public override void DoSettingsWindowContents(Rect rect)
     {
-        var listing_Standard = new Listing_Standard();
-        listing_Standard.Begin(rect);
-        listing_Standard.CheckboxLabeled("SV.CheckForDanger".Translate(), ref Settings.CheckForDanger,
+        var listingStandard = new Listing_Standard();
+        listingStandard.Begin(rect);
+        listingStandard.CheckboxLabeled("SV.CheckForDanger".Translate(), ref Settings.CheckForDanger,
             "SV.CheckForDangerTT".Translate());
-        listing_Standard.CheckboxLabeled("SV.CheckHealth".Translate(), ref Settings.CheckHealth,
+        listingStandard.CheckboxLabeled("SV.CheckHealth".Translate(), ref Settings.CheckHealth,
             "SV.CheckHealthTT".Translate());
-        listing_Standard.CheckboxLabeled("SV.DelayThoughts".Translate(), ref Settings.DelayThoughts,
+        listingStandard.CheckboxLabeled("SV.DelayThoughts".Translate(), ref Settings.DelayThoughts,
             "SV.DelayThoughtsTT".Translate());
         if (ModLister.BiotechInstalled || SmarterVisitors.VampiresLoaded)
         {
-            listing_Standard.CheckboxLabeled("SV.UVLightSensitivity".Translate(), ref Settings.UVLightSensitivity,
+            listingStandard.CheckboxLabeled("SV.UVLightSensitivity".Translate(), ref Settings.UVLightSensitivity,
                 "SV.UVLightSensitivityTT".Translate());
         }
 
-        listing_Standard.Gap();
-        Settings.AddExtraFood = (int)Math.Round(listing_Standard.SliderLabeled(
+        listingStandard.Gap();
+        Settings.AddExtraFood = (int)Math.Round(listingStandard.SliderLabeled(
             "SV.AddExtraFood".Translate(Settings.AddExtraFood), Settings.AddExtraFood, 0, 5f,
             tooltip: "SV.AddExtraFoodTT".Translate()));
 
         if (currentVersion != null)
         {
-            listing_Standard.Gap();
+            listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("SV.ModVersion".Translate(currentVersion));
+            listingStandard.Label("SV.ModVersion".Translate(currentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.End();
+        listingStandard.End();
     }
 }
