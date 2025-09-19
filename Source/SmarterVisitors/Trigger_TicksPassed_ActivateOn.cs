@@ -10,6 +10,12 @@ public static class Trigger_TicksPassed_ActivateOn
 {
     public static bool Prefix(ref Trigger_TicksPassed __instance, Lord lord, TriggerSignal signal, ref bool __result)
     {
+        if (SmarterVisitors.TimeToLeaveLords?.Contains(lord) == true)
+        {
+            __result = true;
+            return false;
+        }
+
         if (!SmarterVisitorsMod.Instance.Settings.CheckForDanger)
         {
             return true;

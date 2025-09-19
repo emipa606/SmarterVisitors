@@ -5,9 +5,15 @@
   "PreviewVersion": "1.6",
   "SocialImageSet": true,
   "FundingSet": true,
-  "LastXmlCleaning": "2025-06-29T14:39:14.8768415+02:00",
+  "LastXmlCleaning": "2025-09-19T21:28:26.6162766+02:00",
   "SearchTags": [
     " protect",
     "visitors"
-  ]
+  ],
+  "Patches": false,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 22050,
+  "LinesOfXML": 2743,
+  "CodeBaseSize": 68
 }

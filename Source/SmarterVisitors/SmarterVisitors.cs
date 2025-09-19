@@ -13,6 +13,7 @@ public static class SmarterVisitors
 {
     private static readonly GeneDef UvGeneDef;
     public static readonly bool VampiresLoaded;
+    public static List<Lord> TimeToLeaveLords;
 
     static SmarterVisitors()
     {

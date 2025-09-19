@@ -16,5 +16,7 @@
   <SV.Allow>Sure, you can stay</SV.Allow>
   <SV.WaitALittle>Ask again in an hour</SV.WaitALittle>
   <SV.Deny>No, please leave now</SV.Deny>
+  <SV.DismissVisitor>Dismiss visitor</SV.DismissVisitor>
+  <SV.DismissedVisitor>Visitor already dismissed</SV.DismissedVisitor>
   <SV.ChillSpotDestroyed>Only one visiting spot can be placed, removing the old spot</SV.ChillSpotDestroyed>
 </LanguageData>
