@@ -1,5 +1,8 @@
 # Changelog for SmarterVisitors
 
+1.6.2 - Fixed royalty check
+
+
 1.6.1 - Added option to dismiss visitor groups
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 

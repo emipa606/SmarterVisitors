@@ -30,7 +30,7 @@ public static class SmarterVisitors
     {
         var fallout = map.GameConditionManager.ConditionIsActive(GameConditionDefOf.ToxicFallout);
         var spewer = false;
-        if (ModLister.RoyaltyInstalled)
+        if (ModsConfig.RoyaltyActive)
         {
             spewer = map.GameConditionManager.ConditionIsActive(GameConditionDef.Named("ToxicSpewer"));
         }
