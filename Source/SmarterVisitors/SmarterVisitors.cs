@@ -104,15 +104,11 @@ public static class SmarterVisitors
             return true;
         }
 
-        if (VampiresLoaded)
+        if (VampiresLoaded && lord.ownedPawns.Any(pawn =>
+                pawn.health?.hediffSet.hediffs?.Any(hediff => hediff.def.defName.StartsWith("ROM_Vampirism")) ==
+                true))
         {
-            if (lord.ownedPawns.Any(pawn =>
-                    pawn.health?.hediffSet.hediffs?.Any(hediff => hediff.def.defName.StartsWith("ROM_Vampirism")) ==
-                    true))
-            {
-                Log.Message("Vampire in group");
-                return false;
-            }
+            return false;
         }
 
         if (!ModsConfig.BiotechActive)

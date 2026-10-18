@@ -7,9 +7,9 @@ namespace SmarterVisitors;
 public class GameComponent_ApprovedLords : GameComponent
 {
     public Dictionary<Lord, int> LordDelaysDictionary;
+    public List<long> LordReasonHashes;
     private List<Lord> lordDelaysDictionaryKeys = [];
     private List<int> lordDelaysDictionaryValues = [];
-    public List<long> LordReasonHashes;
 
     // ReSharper disable once UnusedParameter.Local
     public GameComponent_ApprovedLords(Game game)

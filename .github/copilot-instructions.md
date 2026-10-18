@@ -1,59 +1,67 @@
-# GitHub Copilot Instructions for RimWorld Modding Project: Smarter Visitors
-
-Welcome to the development of the Smarter Visitors mod for RimWorld! This guide outlines the mod's functionality and provides coding guidelines to assist developers using GitHub Copilot in contributing to this project.
+# GitHub Copilot Instructions for Smarter Visitors Mod
 
 ## Mod Overview and Purpose
 
-The Smarter Visitors mod aims to enhance the visitor experience in RimWorld by giving groups of visitors smarter decision-making capabilities about when to leave your colony. Visitors will now consider various in-game conditions before deciding to depart, making their stay more logical and minimizing unnecessary risks.
+The **Smarter Visitors** mod is designed to enhance the interaction with visitor groups in RimWorld by providing smarter decision-making processes for when visitors decide to leave your colony. Visitors will now make informed choices about their departure, taking into account various environmental and health conditions. This mod adds a level of realism and strategy, ensuring that the departure of visitors is timed more appropriately based on situational factors.
 
 ## Key Features and Systems
 
-- **Condition-Based Departure Delays:** Visitors will delay their departure based on map conditions like active raids, toxic fallout, or other dangers. They can request to stay longer until it's safe to leave.
+- **Visitor Departure Decision:** Visitors will assess the map for dangers such as raids, maddened animals, or toxic fallout before deciding to leave. They will also consider their own health and UV sensitivity.
   
-- **Health-Related Decisions:** Visitors with health issues requiring medical rest will delay leaving until they are healthy enough to travel.
+- **Visitor Spot:** Designate a specific spot for visitors to congregate, making it easier to protect them from potential threats.
 
-- **UV-Sensitivity Consideration:** Characters with UV-sensitivity, including certain vampire characters, will postpone their departure until nightfall.
+- **Health and UV Sensitivity Checks:** Visitors will delay their departure if any member of their group is unfit for travel due to health issues or UV sensitivity.
 
-- **Visitor Spot Designation:** Players can designate specific spots where visitors will gather, keeping them safe from potential threats.
+- **Mood Impact on Delays:** Visitors may develop negative thoughts if they stay longer than anticipated, which intensifies with extended delays.
 
-- **Negative Thought Management:** If visitors stay longer than planned, they might gain negative thoughts, which worsen with prolonged delays. Food rations can help mitigate these effects.
-
-- **Compatibility with Hospitality Mod:** This mod works seamlessly with the Hospitality mod by borrowing and adapting its danger-check logic.
+- **Harmony and Compatibility:** The mod works seamlessly with the Hospitality mod by Orion, adapting similar logic for assessing map dangers.
 
 ## Coding Patterns and Conventions
 
-- **Namespaces:** Ensure all classes are appropriately namespaced. Organize code into specific folders and namespaces to keep the project maintainable.
-  
-- **Class Structure:** Most classes should follow the model of having a central logic class accompanied by settings and configuration classes.
+- **Convention Adherence:** The source code follows C# conventions, such as PascalCase for class names and camelCase for method and variable names.
 
-- **Comments and Documentation:** Use XML comments to document methods and classes thoroughly. This practice helps in maintenance and when using tools like GitHub Copilot to understand the purpose and usage of various components.
+- **Code Structure:** Classes are designed to be modular, with clear separation of concerns. Each file generally defines one class with specific functionality.
+
+- **Comments and Documentation:** Key sections of the code are commented to enhance clarity, keeping in mind future extensibility.
 
 ## XML Integration
 
-- Integration with XML involves using Defs. Make sure to define any custom Defs, such as `ThoughtDef` or `BuildingDef`, in appropriate XML files under the Defs folder.
-  
-- Pay attention to ensuring that the XML data corresponds to the C# representation, maintaining consistent string identifiers between the two.
+- **Definitions:** XML files define custom ThingDefs, JobDefs, and ThoughtDefs to integrate new behaviors and items related to visitor interactions.
+
+- **Localization Support:** XML files are structured to support translations, ensuring mod readiness for international audiences.
 
 ## Harmony Patching
 
-- **Purpose of Harmony:** This project uses Harmony to modify existing RimWorld behaviors safely and effectively. Apply patches to game methods to extend or change their functionality as needed.
+- **Dependency:** The mod relies on the Harmony library (brrainz.harmony) to perform method patches that alter the behavior of the base game code.
 
-- **Implementation:** Use `[HarmonyPatch]` attributes to apply patches. Ensure patches are non-destructive and include fallback mechanisms when conditions aren't met.
+- **Method Patching:** Use Harmony's prefix and postfix patching to customize the logic for visitor departure without directly modifying the game’s original methods.
 
-- **Debugging Patches:** Copilot users should write thorough logging around patched code. This is crucial for diagnosing issues arising from compatibility or logic errors.
+- **Method Safety:** Ensure patch methods are idempotent and non-destructive to maintain compatibility with other mods.
 
 ## Suggestions for Copilot
 
-To enhance productivity with GitHub Copilot while contributing to this mod:
+- **Class and Method Drafting:** Copilot can assist in creating new classes or methods by suggesting standard templates and patterns.
 
-1. **Ask Copilot to generate boilerplate code:** Take advantage of Copilot's ability to generate class structures, particularly those that align with common design patterns used in RimWorld modding.
-   
-2. **Use Copilot for XML-template creation:** Request Copilot to generate XML templates based on existing Defs. This can speed up the process of introducing new game objects.
+- **XML Template Generation:** Utilize Copilot to draft new XML def templates for expanding mod features.
 
-3. **Prompt Copilot for alternatives:** If a generated code snippet doesn't fit, ask Copilot for an alternative to explore different implementation strategies.
+- **Harmony Patch Templates:** Generate patch classes and methods with placeholders for customization.
 
-4. **Focus suggestions on logic flow:** Ask Copilot to complete sections of the AI decision-making logic to ensure smooth flow and integration.
+- **Optimization Suggestions:** Leverage Copilot to provide optimizations in runtime operations or suggest refactoring opportunities in complex functions.
 
-5. **Leverage Copilot for documentation:** Use Copilot to generate initial XML comments, which you can refine and expand upon.
+By utilizing these guidelines and Copilot’s assisted code generation, developers can efficiently expand and maintain the Smarter Visitors mod, ensuring a seamless and feature-rich experience for RimWorld players.
 
-By adhering to these guidelines, you can ensure the continuous improvement and expansion of the Smarter Visitors mod, providing players a more refined and enjoyable experience.
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+
